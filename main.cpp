@@ -4,6 +4,7 @@
 #endif
 
 #include "ApplicationManager.h"
+#include "clock.h"
 
 //wWinMain is the conventional and most recent name used for the application entry point. (http://msdn.microsoft.com/en-us/library/windows/desktop/ff381406%28v=vs.85%29.aspx)
 #ifdef _WIN32
@@ -22,9 +23,11 @@ int WINAPI wWinMain(HINSTANCE instance_handler, //instance_handler is something 
 	GLWindow program_window(instance_handler);
 #endif
 
-	ApplicationManager game_manager;
+	ApplicationManager application_manager;
 
-	program_window.attachApplicationManager(&game_manager);
+	Clock application_clock;
+
+	program_window.attachApplicationManager(&application_manager);
 
 	if (!program_window.create(window_width, window_height, window_bpp, window_fullscreen)) {
 #ifdef _WIN32
@@ -34,7 +37,7 @@ int WINAPI wWinMain(HINSTANCE instance_handler, //instance_handler is something 
 		return 0;
 	}
 
-	if (!game_manager.init()) {
+	if (!application_manager.init()) {
 #ifdef _WIN32
 		MessageBox(NULL, "Application Creation Failed!", "An error ocurrer", MB_ICONERROR | MB_OK);
 #endif
@@ -45,10 +48,10 @@ int WINAPI wWinMain(HINSTANCE instance_handler, //instance_handler is something 
 	while (program_window.isRunning()) {
 		program_window.processEvents(); //Process any window events
 
-		float elapsedTime = program_window.getElapsedSeconds();
+		float elapsedTime = application_clock.calculateDeltaSeconds();
 
-		game_manager.update(elapsedTime);
-		game_manager.draw();
+		application_manager.update(elapsedTime);
+		application_manager.draw();
 
 		program_window.swapBuffers();
     }
