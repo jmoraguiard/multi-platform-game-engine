@@ -77,6 +77,7 @@
   <ItemGroup>
     <ClCompile Include="applicationManager.cpp" />
     <ClCompile Include="applicationState.cpp" />
+    <ClCompile Include="clock.cpp" />
     <ClCompile Include="glwwindow.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="splashScreenState.cpp" />
@@ -84,6 +85,7 @@
   <ItemGroup>
     <ClInclude Include="applicationManager.h" />
     <ClInclude Include="applicationState.h" />
+    <ClInclude Include="clock.h" />
     <ClInclude Include="glwwindow.h" />
     <ClInclude Include="glx\glext.h" />
     <ClInclude Include="splashScreenState.h" />

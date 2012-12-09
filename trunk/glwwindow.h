@@ -15,8 +15,6 @@ class GLWindow
 		void destroy();
 		void processEvents();
 		void attachApplicationManager(ApplicationManager* game_manager);
-
-		float getElapsedSeconds();
     
 		bool isRunning(); //Is the window running?
 
@@ -33,7 +31,6 @@ class GLWindow
 		ApplicationManager* game_manager_;
 		bool is_running_;
 		bool full_screen_;
-		float last_time_;
 
 		HWND window_handler_;
 		HDC device_context_handler_;
