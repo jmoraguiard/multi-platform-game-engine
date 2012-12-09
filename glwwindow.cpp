@@ -95,7 +95,6 @@ bool GLWindow::create(int width, int height, int bpp, bool fullscreen) {
 	ShowWindow(window_handler, SW_SHOW);
 	UpdateWindow(window_handler_); // update the window
 
-	last_time_ = GetTickCount() / 1000.0f;	//Initialize the time	
 	return true;
 }
 
@@ -105,14 +104,6 @@ void GLWindow::destroy()
         ChangeDisplaySettings(NULL, 0);         // If So Switch Back To The Desktop
         ShowCursor(true);                       // Show Mouse Pointer
     }
-}
-
-float GLWindow::getElapsedSeconds()
-{
-    float currentTime = float(GetTickCount()) / 1000.0f;
-    float seconds = float(currentTime - last_time_);
-    last_time_ = currentTime;
-    return seconds;
 }
 
 bool GLWindow::isRunning()
