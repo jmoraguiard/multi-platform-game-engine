@@ -1,10 +1,26 @@
 #ifdef _WIN32
 #include <windows.h>
+#else
+#include <sys/time.h>
 #endif
 
 #include "clock.h"
 
 #include <ctime>
+
+#ifdef __unix__
+
+unsigned int GetTickCount() {
+    struct timeval t;
+    gettimeofday(&t, NULL);
+
+    unsigned long secs = t.tv_sec * 1000;
+    secs += (t.tv_usec / 1000);
+
+    return secs;
+}
+
+#endif
 
 Clock::Clock():
 	total_time_(0.0f),
@@ -16,7 +32,7 @@ Clock::~Clock() {
 }
 
 void Clock::init() {
-	
+
 	last_time_ = GetTickCount() / 1000.0f;
 
 }

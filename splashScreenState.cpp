@@ -30,7 +30,7 @@ bool SplashScreenState::init() {
 }
 
 void SplashScreenState::update(ApplicationManager* game_manager, float elapsed_time) {
-		
+
 	const float SPEED = 15.0f;
 
 	angle_rotation_ += SPEED * elapsed_time;
@@ -55,12 +55,12 @@ void SplashScreenState::draw(ApplicationManager* game_manager) {
 }
 
 void SplashScreenState::keyboardEvent(ApplicationManager* game_manager, char key_pressed) {
-	
+
 	switch(key_pressed)
 	{
-		case VK_F1:
+		/*case VK_F1:
 			changeState(game_manager, SplashScreenState::Instance());
-			break;
+			break;*/
 	}
 
 }

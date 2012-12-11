@@ -1,9 +1,11 @@
 #ifdef _WIN32
 #include <windows.h>
 #include "glwwindow.h"
+#else
+#include "glxwindow.h"
 #endif
 
-#include "ApplicationManager.h"
+#include "applicationManager.h"
 #include "clock.h"
 
 //wWinMain is the conventional and most recent name used for the application entry point. (http://msdn.microsoft.com/en-us/library/windows/desktop/ff381406%28v=vs.85%29.aspx)
@@ -12,6 +14,8 @@ int WINAPI wWinMain(HINSTANCE instance_handler, //instance_handler is something 
 										HINSTANCE instance_previous_handler, //instance_previous_handler has no meaning. It was used in 16-bit Windows, but is now always zero.
 										PWSTR pCmdLine, //pCmdLine contains the command-line arguments as a Unicode string.
 										int nCmdShow) { //nCmdShow is a flag that says whether the main application window will be minimized, maximized, or shown normally.
+#else
+int main(int argc, char** argv) {
 #endif
 
 	const int window_width			= 1024;
@@ -21,6 +25,8 @@ int WINAPI wWinMain(HINSTANCE instance_handler, //instance_handler is something 
 
 #ifdef _WIN32
 	GLWindow program_window(instance_handler);
+#else
+    GLX11Window program_window;
 #endif
 
 	ApplicationManager application_manager;
