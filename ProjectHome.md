@@ -1,0 +1,1 @@
+Multi-platform game engine created from scratch using C++ and OpenGL (maybe integrating QT for GUI development) based on a learning process by the author thanks to NeHe, Beginning OpenGL Game Programming book (2nd edition), Game Engine Architecure book, and many more resources.
